@@ -7,8 +7,8 @@ import {
 
 const router = Router();
 
-router.get('/leads', getAllLeads);
-router.post('/leads', createLead);
-router.delete('/leads/:id', deleteLead);
+router.get('/', getAllLeads);
+router.post('/', createLead);
+router.delete('/:id', deleteLead);
 
 export default router;

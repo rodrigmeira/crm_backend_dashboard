@@ -1,10 +1,17 @@
-import app from './app';
-import dotenv from 'dotenv';
+import express from 'express';
+import cors from 'cors';
 
-dotenv.config();
+import leadRouter from './routes/lead.routes';
+import projectRouter from './routes/project.routes';
 
-const PORT = process.env.PORT || 8080;
+const app = express();
+app.use(cors());
+app.use(express.json());
 
+app.use('/api/leads', leadRouter);
+app.use('/api/projects', projectRouter);
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
