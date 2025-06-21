@@ -17,7 +17,6 @@ async function main() {
     const randomProject = projetos[Math.floor(Math.random() * projetos.length)]
     const randomStatus = statuses[Math.floor(Math.random() * statuses.length)]
 
-    // 🔥 Gera datas entre janeiro e junho de 2024
     const randomMonth = Math.floor(Math.random() * 6) + 1 // 1 a 6
     const randomDay = Math.floor(Math.random() * 28) + 1 // Para evitar problemas com fevereiro
 

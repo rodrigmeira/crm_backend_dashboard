@@ -13,16 +13,27 @@ export const getAllLeads = async (req: Request, res: Response) => {
 };
 
 export const createLead = async (req: Request, res: Response) => {
-  const { name, email, phone, company, origin, projectId, status } = req.body;
+  const { name, email, phone, company, origin, status, projectId } = req.body
+
   try {
     const lead = await prisma.lead.create({
-      data: { name, email, phone, company, origin, status, projectId }
-    });
-    res.status(201).json(lead);
+      data: {
+        name,
+        email,
+        phone,
+        company,
+        origin,
+        status,
+        projectId,
+      },
+    })
+
+    res.status(201).json(lead)
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao criar lead' });
+    res.status(500).json({ error: "Erro ao criar lead" })
   }
-};
+}
+
 
 export const deleteLead = async (req: Request, res: Response) => {
   const { id } = req.params;
