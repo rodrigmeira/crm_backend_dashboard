@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Project {
-  id          String   @id @default(uuid())
+  id          String @id @default(uuid())
   name        String
   description String
   leads       Lead[]
@@ -21,6 +21,7 @@ model Lead {
   phone     String
   company   String
   origin    String
+  status    String   @default("Novo")
   createdAt DateTime @default(now())
   projectId String
   project   Project  @relation(fields: [projectId], references: [id])

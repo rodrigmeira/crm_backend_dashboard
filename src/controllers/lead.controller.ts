@@ -13,10 +13,10 @@ export const getAllLeads = async (req: Request, res: Response) => {
 };
 
 export const createLead = async (req: Request, res: Response) => {
-  const { name, email, phone, company, origin, projectId } = req.body;
+  const { name, email, phone, company, origin, projectId, status } = req.body;
   try {
     const lead = await prisma.lead.create({
-      data: { name, email, phone, company, origin, projectId }
+      data: { name, email, phone, company, origin, status, projectId }
     });
     res.status(201).json(lead);
   } catch (error) {
